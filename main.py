@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import requests
 import json
+import time
 
 def setup_database(name):
     path = os.path.dirname(os.path.abspath(__file__))
@@ -75,6 +76,27 @@ def insert_nutrition(cur):
     url = 'https://api.api-ninjas.com/v1/nutrition'
     headers = {'X-Api-Key': apiKey}
 
+    cur.execute('SELECT meal_id, name FROM meals')
+    meals = cur.fetchall()
+
+    for meal_id, name in meals:
+        response = requests.get(url, headers=headers, params={'query': name})
+        if response.status_code == 200:
+            data = response.json()
+            nutrition = data[0] if data else None
+        if nutrition:
+            cur.execute('''
+                INSERT OR REPLACE INTO nutrition (
+                    meal_id, calories, serving_size_g, fat_total_g,
+                    fat_saturated_g, protein_g, sodium_mg, potassium_mg,
+                    cholesterol_mg, carbohydrates_total_g, fiber_g, sugar_g
+                )
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', (meal_id,nutrition.get('calories'),nutrition.get('serving_size_g'),
+                nutrition.get('fat_total_g'),nutrition.get('fat_saturated_g'),nutrition.get('protein_g'),nutrition.get('sodium_mg'),
+                nutrition.get('potassium_mg'),nutrition.get('cholesterol_mg'),nutrition.get('carbohydrates_total_g'),nutrition.get('fiber_g'),
+                nutrition.get('sugar_g')))
+        time.sleep(1)
+        
 
 
 
