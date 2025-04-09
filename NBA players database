@@ -1,0 +1,49 @@
+import sqlite3
+import os
+
+
+print("NBA Players Database")
+def create_database_table():
+    # Connect to the SQLite database (or create it if it doesn't exist)
+    conn = sqlite3.connect('nba_data.db')
+    cursor = conn.cursor()
+
+    # Create a table for players
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS players (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            team TEXT,
+            position TEXT,
+            height TEXT,
+            weight INTEGER
+        )
+    ''')
+    conn.commit()
+
+    # Create a table for games
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS games (
+            id INTEGER PRIMARY KEY,
+            date TEXT,
+            home_team TEXT,
+            away_team TEXT,
+            home_score INTEGER,
+            away_score INTEGER
+        )
+    ''')
+    conn.commit()
+    # Commit the changes and close the connection
+    conn.commit()
+    conn.close()
+def insert_player_data(player_data):
+    conn = sqlite3.connect('nba_data.db')
+    cursor = conn.cursor()
+    
+    cursor.execute('''
+        INSERT INTO players (id, name, team, position, height, weight)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ''', (player_data['id'], player_data['name'], player_data['team'], player_data['position'], player_data['height'], player_data['weight']))
+    conn.commit()
+    conn.close()
+    
