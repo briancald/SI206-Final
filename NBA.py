@@ -1,38 +1,16 @@
 import requests
-import json
-# from balldontlie import BalldontlieAPI
+import unittest
+
+
 
 
 def get_api_key(filename):
     with open(filename, 'r') as file:
-        api_data = file.read().strip()
-        # api_key = api_data.split("=")[1].strip().strip('"') 
+        api_data = file.read().strip() 
         return api_data 
+    get_api_key(api_data)
 
 
-# url = "https://api-nba-v1.p.rapidapi.com/players/statistics"
-
-# querystring = {"game":"8133"}
-
-# headers = {
-# 	"x-rapidapi-key": "71f6ebba9amsh87b761e3e6eddd5p1ac7eajsnec34507127ea",
-# 	"x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
-# }
-
-# response = requests.get(url, headers=headers, params=querystring)
-#print(response.text)
-def get_season():
-    url = "https://api-nba-v1.p.rapidapi.com/seasons"
-
-    headers = {
-        "x-rapidapi-key": "71f6ebba9amsh87b761e3e6eddd5p1ac7eajsnec34507127ea",
-        "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
-    }
-
-    response = requests.get(url, headers=headers)
-
-    print(response.json())
-    #print(f"Status Code: {response.status_code}")
 
 
 def get_teams():
@@ -46,8 +24,28 @@ def get_teams():
     }
 
     response = requests.get(url, headers=headers, params=querystring)
+    teams_data = response.json()
+    print("bbb", response.json())
+    get_teams(teams_data)
 
-    print(response.json())
+
+
+
+
+def get_players():
+    url = "https://api-nba-v1.p.rapidapi.com/players"
+
+    querystring = {"team":"1","season":"2021"}
+
+    headers = {
+        "x-rapidapi-key": "71f6ebba9amsh87b761e3e6eddd5p1ac7eajsnec34507127ea",
+        "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+    players_data = response.json()
+
+    get_players(players_data)
 
 
 
@@ -60,6 +58,8 @@ def get_statistics():
         "x-rapidapi-key": "71f6ebba9amsh87b761e3e6eddd5p1ac7eajsnec34507127ea",
         "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
     }
-
+    
     response = requests.get(url, headers=headers, params=querystring)
-    print(response.json())
+    #print("ddd", response.json())
+    statistics_data = response.json()
+    get_statistics(statistics_data)
