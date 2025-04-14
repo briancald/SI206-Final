@@ -11,6 +11,7 @@ import time
 
 
 def setup_database(name):
+    # Create a SQLite database and tables for meals and nutrition
     path = os.path.dirname(os.path.abspath(__file__))
     conn = sqlite3.connect(path + "/" + name)
     cur = conn.cursor()
@@ -21,8 +22,7 @@ def setup_database(name):
         category TEXT,
         area TEXT,
         instructions TEXT,
-        thumbnail TEXT)''')
-    
+        thumbnail TEXT)''')  
     
     cur.execute('''
     CREATE TABLE IF NOT EXISTS nutrition (
@@ -39,6 +39,7 @@ def setup_database(name):
     return cur, conn
 
 def insert_meals(cur, meals):
+    # Insert meal data into the meals table
     inserted = 0
     for meal in meals:
         meal_id = meal['idMeal']
@@ -58,6 +59,8 @@ def insert_meals(cur, meals):
     
 
 def get_nutrition(cur):
+    # Fetch nutrition data from the FatSecret API
+    # Get the access token
     url = "https://oauth.fatsecret.com/connect/token"
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     data = {
@@ -71,11 +74,12 @@ def get_nutrition(cur):
     headers = {"Authorization": f"Bearer {token}"}
 
     search_url = f"https://platform.fatsecret.com/rest/foods/search/"
-
+    # Get the meal names from the database
     cur.execute('SELECT meal_id, name FROM meals')
     meals = cur.fetchall()
     count = 0
     out = []
+    # Loop through the meals and fetch nutrition data
     for meal_id, name in meals:
         if count == 25:
             break
@@ -89,6 +93,7 @@ def get_nutrition(cur):
         if response.status_code == requests.codes.ok:
             data = json.loads(response.text)
             if data:
+                # Check if the response contains food data
                 if 'foods' in data and 'food' in data['foods']:
                     foodid = data['foods']['food']['food_id']
                 else:
@@ -105,6 +110,7 @@ def get_nutrition(cur):
                     if datNutrition.get('food') is None:
                         continue
                     try:
+                        # Extract the nutrition information
                         nutrition = datNutrition['food']['servings']['serving'][0]
                     
                         out.append({
@@ -121,14 +127,16 @@ def get_nutrition(cur):
                         count += 1
                     except (KeyError, IndexError, TypeError):
                         continue
+        
         time.sleep(1)
 
-
+    # Save the nutrition data to a JSON file
     with open("nutrition.json", 'w') as f:
         json.dump(out, f, indent=2)
 
 def insert_nutrition(cur, conn, nutrition):
     inserted = 0
+    # Insert nutrition data into the nutrition table
     for item in nutrition:
         cur.execute('''
             INSERT OR IGNORE INTO nutrition
@@ -169,10 +177,14 @@ def save_data(dict, file):
             json.dump(dict, f, indent=4)
 
 def store_meal_data_json():
+    # Fetch meal data from the MealDB API and save it to a JSON file
     allmeals = []
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     
     for letter in alphabet:
+        # Fetch meals starting with the current letter
+        # Add a delay to avoid hitting the API too quickly
+        time.sleep(1)
         url = f'https://www.themealdb.com/api/json/v1/1/search.php?f={letter}'
         response = requests.get(url)
         data = response.json()

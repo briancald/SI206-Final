@@ -14,6 +14,7 @@ conn = sqlite3.connect("nba_data.db")
 cur = conn.cursor()
 
 def calcute_nutrition(cur, position, height, weight, minutes, points):
+    # Calculate the nutrition needs based on player stats
     baseCals = 10 *weight + 6.25 *height
     if position == "C":
         baseCals += 500
@@ -30,13 +31,13 @@ def calcute_nutrition(cur, position, height, weight, minutes, points):
     if points > 30:
         baseCals += 500
     
+    # Calculate the macronutrient breakdown
     baseFat = (0.25 * baseCals) / 9
     baseProtein = weight * 1.6
     baseCarbs = (0.55 * baseCals) / 4
     baseFiber = baseCals * 0.014
     baseSugar = baseCals * 0.025
     baseSodium = baseCals * 1.15
-
 
     return {
         "calories": baseCals,
@@ -49,11 +50,13 @@ def calcute_nutrition(cur, position, height, weight, minutes, points):
     }
 
 def create_nutrition_plan(info):
+    # Create a nutrition plan based on the calculated needs
     meals_df = pd.read_sql_query("SELECT * FROM meals", conn)
     nutrition_df = pd.read_sql_query("SELECT * FROM nutrition", conn)
     df = pd.merge(meals_df, nutrition_df, on='meal_id')
-
+    # Filter out meals with less than 100 calories
     df = df[df['calories'] >= 100]
+    #Weight the meals based on their nutritional value
     df['score'] = (
         0.5 * df['protein_g'] +
         0.3 * df['carbohydrates_total_g'] +
@@ -67,24 +70,27 @@ def create_nutrition_plan(info):
         selected_meals = []
         running_totals = {key: 0 for key in info.keys()}
         used_meals = set()
-
+        # Shuffle the meals for each day
         df_day = df.sample(frac=1, random_state=day)
-
+        # Select meals for the day
         for _, meal in df_day.iterrows():
+            # Check if the meal has already been used
             if meal['meal_id'] in used_meals:
                 continue
             temp_totals = running_totals.copy()
+            # Add the meal's nutrition to the running totals
             for key in info:
                 if key in meal:
                     temp_totals[key] += meal.get(key, 0)
-
+            # Check if the total calories are within the limit
             if temp_totals['calories'] <= info['calories'] + 100:
                 running_totals = temp_totals
                 selected_meals.append(meal)
                 used_meals.add(meal['meal_id'])
-
+            # Check if the running totals meet the nutritional needs
             if (all(running_totals[k] >= info[k] * 0.88 for k in info) and len(selected_meals) >= 5):
                 break
+        # If the nutritional needs are not met, add more meals
         if not all(running_totals[k] >= info[k] * 0.9 for k in info):
             for _, meal in df_day.iterrows():
                 if meal['meal_id'] in used_meals:
@@ -102,11 +108,12 @@ def create_nutrition_plan(info):
 
                 if all(running_totals[k] >= info[k] * 0.9 for k in info):
                     break
-
+        
         day_plan_df = pd.DataFrame(selected_meals)
+        # Calculate the total calories and macronutrients for the day
         day_plan_df["day"] = f"Day {day+1}"
         weekly_plan.append(day_plan_df)
-
+        # Print the meal plan for the day
     full_plan_df = pd.concat(weekly_plan, ignore_index=True)
     for day in range(1, 8):
         print(f"\n Meal Plan for Day {day}:")
@@ -134,11 +141,12 @@ def get_player_stats(cur, playerid):
     }
 
 def plots(meal_plan, nutrition_needs, player_info,id):
+    # Create plots for the meal plan
     meal_plan = meal_plan.reset_index(drop=True)
     meal_plan['day'] = meal_plan['day'].astype(str)
     summary = meal_plan.groupby('day')[['calories', 'fat_total_g', 'protein_g', 'carbohydrates_total_g',
                                         'fiber_g', 'sugar_g', 'sodium_mg']].sum()
-
+    # Calories per day
     plt.figure(figsize=(10, 5))
     summary['calories'].plot(kind='bar', title='Calories per Day')
     plt.axhline(y=nutrition_needs['calories'], color='r', linestyle='--', label='Target')
@@ -147,7 +155,7 @@ def plots(meal_plan, nutrition_needs, player_info,id):
     plt.legend()
     plt.tight_layout()
     plt.savefig(f'{id}_calories_per_day.png')
-
+    # Macronutrient breakdown
     summary[['protein_g', 'fat_total_g', 'carbohydrates_total_g']].plot(kind='bar', stacked=True, figsize=(10, 6),
                                                                         title='Macronutrient Breakdown')
     plt.ylabel('Grams')
@@ -171,7 +179,7 @@ def plots(meal_plan, nutrition_needs, player_info,id):
         nutrition_needs['sugar_g'],
         nutrition_needs['sodium_mg']/1000
     ]
-
+    # Radar chart
     angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False).tolist()
     actual += actual[:1]
     target += target[:1]
@@ -186,27 +194,13 @@ def plots(meal_plan, nutrition_needs, player_info,id):
     ax.legend()
     plt.savefig(f'{id}_nutrition_radar.png')
 
-
-
 def main():
     player_id = input("Enter Player ID: ")
     player_info = get_player_stats(cur,player_id)
     needs = calcute_nutrition(cur,player_info['position'],player_info['height'],player_info['weight']
                               ,player_info['minutes'],player_info['points'])
     meal_plan = create_nutrition_plan(needs)
-
-    
-
     plots(meal_plan, needs, player_info,player_id)
-
-
-
-
-
-    
-
-        
-    
 
 if __name__ == "__main__":
     main()
