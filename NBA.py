@@ -1,6 +1,4 @@
 import requests
-import unittest
-
 
 
 
@@ -9,26 +7,6 @@ def get_api_key(filename):
         api_data = file.read().strip() 
         return api_data 
     get_api_key(api_data)
-
-
-
-
-def get_teams():
-    url = "https://api-nba-v1.p.rapidapi.com/teams"
-
-    querystring = {"id":"1"}
-
-    headers = {
-        "x-rapidapi-key": "71f6ebba9amsh87b761e3e6eddd5p1ac7eajsnec34507127ea",
-        "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
-    }
-
-    response = requests.get(url, headers=headers, params=querystring)
-    teams_data = response.json()
-    print("bbb", response.json())
-    get_teams(teams_data)
-
-
 
 
 
@@ -43,23 +21,19 @@ def get_players():
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-    players_data = response.json()
 
-    get_players(players_data)
-
-
-
-def get_statistics():
-    url = "https://api-nba-v1.p.rapidapi.com/players/statistics"
-
-    querystring = {"game":"8133"}
-
-    headers = {
-        "x-rapidapi-key": "71f6ebba9amsh87b761e3e6eddd5p1ac7eajsnec34507127ea",
-        "x-rapidapi-host": "api-nba-v1.p.rapidapi.com"
-    }
     
-    response = requests.get(url, headers=headers, params=querystring)
-    #print("ddd", response.json())
-    statistics_data = response.json()
-    get_statistics(statistics_data)
+    player_info = response.json()
+    return player_info
+
+
+
+
+def main():
+
+    players_data = get_players()
+    print("Players Data:", players_data)
+
+
+if __name__ == "__main__":
+    main()
