@@ -51,11 +51,12 @@ def calcute_nutrition(cur, position, height, weight, minutes, points):
 
 def create_nutrition_plan(info):
     # Create a nutrition plan based on the calculated needs
-    meals_df = pd.read_sql_query("SELECT * FROM meals", conn)
-    nutrition_df = pd.read_sql_query("SELECT * FROM nutrition", conn)
-    df = pd.merge(meals_df, nutrition_df, on='meal_id')
+    query = """SELECT meals.name, meals.meal_id, nutrition.calories, nutrition.protein_g, 
+               nutrition.fat_total_g, nutrition.carbohydrates_total_g, nutrition.fiber_g, 
+               nutrition.sugar_g, nutrition.sodium_mg FROM meals JOIN nutrition ON meals.meal_id = nutrition.meal_id
+               WHERE nutrition.calories >= 100"""
+    df = pd.read_sql_query(query, conn)
     # Filter out meals with less than 100 calories
-    df = df[df['calories'] >= 100]
     #Weight the meals based on their nutritional value
     df['score'] = (
         0.5 * df['protein_g'] +
@@ -115,16 +116,17 @@ def create_nutrition_plan(info):
         weekly_plan.append(day_plan_df)
         # Print the meal plan for the day
     full_plan_df = pd.concat(weekly_plan, ignore_index=True)
+    file = open("meal_plan_summary.txt", "w")
     for day in range(1, 8):
-        print(f"\n Meal Plan for Day {day}:")
+        file.write(f"\n Meal Plan for Day {day}:\n")
         day_meals = full_plan_df[full_plan_df["day"] == f"Day {day}"]
         for i, row in day_meals.iterrows():
-            print(f"  - {row['name']} | {int(row['calories'])} kcal | "
+            file.write(f"  {row['name']} | {int(row['calories'])} kcal | "
                   f"{row['protein_g']}g protein, {row['fat_total_g']}g fat, "
-                  f"{row['carbohydrates_total_g']}g carbs")
+                  f"{row['carbohydrates_total_g']}g carbs\n")
 
         total_cals = day_meals['calories'].sum()
-        print(f"  Total Calories: {int(total_cals)} kcal")
+        file.write(f"  Total Calories: {int(total_cals)} kcal\n")
     return full_plan_df
 
 def get_player_stats(cur, playerid):
@@ -162,6 +164,7 @@ def plots(meal_plan, nutrition_needs, player_info,id):
     plt.xlabel('Day')
     plt.tight_layout()
     plt.savefig(f'{id}_macros_breakdown.png')
+    # Radar chart for nutrition needs
     labels = ['Fat', 'Protein', 'Carbs', 'Fiber', 'Sugar', 'Sodium']
     actual = [
         summary['fat_total_g'].mean(),
@@ -179,7 +182,6 @@ def plots(meal_plan, nutrition_needs, player_info,id):
         nutrition_needs['sugar_g'],
         nutrition_needs['sodium_mg']/1000
     ]
-    # Radar chart
     angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False).tolist()
     actual += actual[:1]
     target += target[:1]

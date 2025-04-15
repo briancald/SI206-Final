@@ -1,0 +1,78 @@
+
+ Meal Plan for Day 1:
+  Beef Dumpling Stew | 313 kcal | 24.41g protein, 13.91g fat, 20.63g carbs
+  New York cheesecake | 780 kcal | 14.0g protein, 74.0g fat, 96.0g carbs
+  French Omelette | 202 kcal | 1.52g protein, 8.97g fat, 29.16g carbs
+  Fish pie | 288 kcal | 15.7g protein, 14.76g fat, 22.67g carbs
+  Chicken Couscous | 510 kcal | 41.0g protein, 19.0g fat, 40.0g carbs
+  Lamb Biryani | 255 kcal | 18.5g protein, 9.98g fat, 21.27g carbs
+  Hot Chocolate Fudge | 100 kcal | 1.0g protein, 3.5g fat, 16.0g carbs
+  Total Calories: 2448 kcal
+
+ Meal Plan for Day 2:
+  Jam Roly-Poly | 453 kcal | 31.0g protein, 21.0g fat, 35.0g carbs
+  Creamy Tomato Soup | 110 kcal | 5.0g protein, 2.0g fat, 17.0g carbs
+  Chocolate Avocado Mousse | 355 kcal | 7.07g protein, 25.69g fat, 27.37g carbs
+  Fish Stew with Rouille | 169 kcal | 15.45g protein, 3.15g fat, 19.68g carbs
+  Jerk chicken with rice & peas | 280 kcal | 27.31g protein, 16.68g fat, 3.71g carbs
+  Bean & Sausage Hotpot | 137 kcal | 6.58g protein, 4.0g fat, 19.23g carbs
+  Montreal Smoked Meat | 210 kcal | 19.0g protein, 13.0g fat, 3.0g carbs
+  Pilchard puttanesca | 110 kcal | 2.0g protein, 8.0g fat, 6.0g carbs
+  Battenberg Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
+  Apple Frangipan Tart | 320 kcal | 4.0g protein, 13.0g fat, 43.0g carbs
+  Parkin Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
+  Hot Chocolate Fudge | 100 kcal | 1.0g protein, 3.5g fat, 16.0g carbs
+  Total Calories: 2452 kcal
+
+ Meal Plan for Day 3:
+  Beef Dumpling Stew | 313 kcal | 24.41g protein, 13.91g fat, 20.63g carbs
+  Beef and Oyster pie | 1633 kcal | 37.52g protein, 106.14g fat, 133.17g carbs
+  Bread and Butter Pudding | 306 kcal | 10.54g protein, 9.48g fat, 46.52g carbs
+  Parkin Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
+  Pilchard puttanesca | 110 kcal | 2.0g protein, 8.0g fat, 6.0g carbs
+  Total Calories: 2466 kcal
+
+ Meal Plan for Day 4:
+  Lancashire hotpot | 390 kcal | 12.0g protein, 5.0g fat, 75.0g carbs
+  Duck Confit | 470 kcal | 34.0g protein, 37.0g fat, 1.0g carbs
+  Poutine | 710 kcal | 19.0g protein, 38.0g fat, 75.0g carbs
+  Irish stew | 230 kcal | 24.0g protein, 6.0g fat, 20.0g carbs
+  Lamb and Potato pie | 296 kcal | 16.96g protein, 12.08g fat, 30.4g carbs
+  Chocolate Raspberry Brownies | 198 kcal | 5.23g protein, 18.01g fat, 6.39g carbs
+  Madeira Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
+  Total Calories: 2398 kcal
+
+ Meal Plan for Day 5:
+  Christmas Pudding Flapjack | 224 kcal | 1.0g protein, 0.0g fat, 19.6g carbs
+  Chelsea Buns | 464 kcal | 5.31g protein, 28.98g fat, 45.76g carbs
+  Creamy Tomato Soup | 110 kcal | 5.0g protein, 2.0g fat, 17.0g carbs
+  Lasagne | 336 kcal | 20.52g protein, 12.38g fat, 35.43g carbs
+  Beef Bourguignon | 339 kcal | 36.26g protein, 11.66g fat, 10.03g carbs
+  Hot Chocolate Fudge | 100 kcal | 1.0g protein, 3.5g fat, 16.0g carbs
+  Chocolate Raspberry Brownies | 198 kcal | 5.23g protein, 18.01g fat, 6.39g carbs
+  Nutty Chicken Curry | 160 kcal | 14.8g protein, 8.6g fat, 6.11g carbs
+  Cream Cheese Tart | 338 kcal | 6.06g protein, 17.33g fat, 42.35g carbs
+  Kidney Bean Curry | 170 kcal | 5.0g protein, 8.0g fat, 19.0g carbs
+  Total Calories: 2439 kcal
+
+ Meal Plan for Day 6:
+  Apple Frangipan Tart | 320 kcal | 4.0g protein, 13.0g fat, 43.0g carbs
+  Bread and Butter Pudding | 306 kcal | 10.54g protein, 9.48g fat, 46.52g carbs
+  Jam Roly-Poly | 453 kcal | 31.0g protein, 21.0g fat, 35.0g carbs
+  Chocolate Souffle | 351 kcal | 4.61g protein, 19.5g fat, 44.69g carbs
+  French Onion Soup | 369 kcal | 15.91g protein, 16.53g fat, 39.33g carbs
+  Duck Confit | 470 kcal | 34.0g protein, 37.0g fat, 1.0g carbs
+  Fish Stew with Rouille | 169 kcal | 15.45g protein, 3.15g fat, 19.68g carbs
+  Total Calories: 2438 kcal
+
+ Meal Plan for Day 7:
+  Jamaican Beef Patties | 380 kcal | 12.0g protein, 20.0g fat, 37.0g carbs
+  Chocolate Avocado Mousse | 355 kcal | 7.07g protein, 25.69g fat, 27.37g carbs
+  Choc Chip Pecan Pie | 456 kcal | 4.56g protein, 21.09g fat, 65.21g carbs
+  Fish Stew with Rouille | 169 kcal | 15.45g protein, 3.15g fat, 19.68g carbs
+  Carrot Cake | 326 kcal | 3.09g protein, 16.7g fat, 42.37g carbs
+  Dal fry | 159 kcal | 6.0g protein, 7.0g fat, 18.0g carbs
+  Grilled Mac and Cheese Sandwich | 291 kcal | 9.16g protein, 15.77g fat, 27.85g carbs
+  Chickpea Fajitas | 207 kcal | 10.37g protein, 3.19g fat, 35.6g carbs
+  Peach & Blueberry Grunt | 128 kcal | 3.19g protein, 4.83g fat, 18.45g carbs
+  Total Calories: 2471 kcal
