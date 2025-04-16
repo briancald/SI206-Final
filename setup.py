@@ -193,7 +193,7 @@ def store_meal_data_json():
     save_data(allmeals, "meals.json")
 
 def main():
-    cur, conn = setup_database('nba_data.db')
+    cur, conn = setup_database('combined_data.db')
     insert_meals(cur, get_data('meals.json'))
     insert_nutrition(cur, conn, get_data('nutrition.json'))
   

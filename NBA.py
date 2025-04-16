@@ -2,6 +2,7 @@ import requests
 
 
 
+
 def get_api_key(filename):
     with open(filename, 'r') as file:
         api_data = file.read().strip() 

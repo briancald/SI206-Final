@@ -4,7 +4,7 @@ from NBA import get_more_players
 
 
 def create_database_table():
-    conn = sqlite3.connect('nba_data.db')
+    conn = sqlite3.connect('combined_data.db')
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -27,7 +27,7 @@ def create_database_table():
 
 
 def insert_player_data(players_data):
-    conn = sqlite3.connect('nba_data.db')
+    conn = sqlite3.connect('combined_data.db')
     cursor = conn.cursor()
 
     for player in players_data:
@@ -84,7 +84,7 @@ def fetch_and_prepare_player_data():
 
 
 def get_existing_player_count():
-    conn = sqlite3.connect('nba_data.db')
+    conn = sqlite3.connect('combined_data.db')
     cursor = conn.cursor()
 
     cursor.execute('SELECT COUNT(*) FROM players')
@@ -94,7 +94,7 @@ def get_existing_player_count():
     return count
 
 def check_schema():
-    conn = sqlite3.connect('nba_data.db')
+    conn = sqlite3.connect('combined_data.db')
     cursor = conn.cursor()
     
     #players table 

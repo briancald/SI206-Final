@@ -9,11 +9,25 @@ import matplotlib.pyplot as plt
 import requests
 import json
 import time
+from nba_api.stats.static import players
+from nba_api.stats.endpoints import commonplayerinfo
 
-conn = sqlite3.connect("nba_data.db")
+conn = sqlite3.connect("combined_data.db")
 cur = conn.cursor()
 
-def calcute_nutrition(cur, position, height, weight, minutes, points):
+def calcute_nutrition(position, height, weight, minutes, points):
+    try:
+        feet, inches = map(int, height.split('-'))
+        total_inches = feet * 12 + inches
+        cm = round(total_inches * 2.54, 1)
+        height = cm
+    except:
+        height = height
+    try:
+        kg = round(int(weight) * 0.453592, 1)
+        weight = kg
+    except:
+        weight = weight
     # Calculate the nutrition needs based on player stats
     baseCals = 10 *weight + 6.25 *height
     if position == "C":
@@ -130,16 +144,15 @@ def create_nutrition_plan(info):
     return full_plan_df
 
 def get_player_stats(cur, playerid):
-    cur.execute("SELECT pos, height, weight, min, points FROM players WHERE id = ?", (playerid,))
+    cur.execute("SELECT firstname,lastname, minutes, points FROM players WHERE id = ?", (playerid,))
     row = cur.fetchone()
     if not row:
         raise ValueError("Player not found.")
     return {
-        "position": row[0],
-        "height": row[1],
-        "weight": row[2],
-        "minutes": row[3],
-        "points": row[4]
+        "firstname": row[0],
+        "lastname": row[1],
+        "minutes": row[2],
+        "points": row[3]
     }
 
 def plots(meal_plan, nutrition_needs, player_info,id):
@@ -199,8 +212,17 @@ def plots(meal_plan, nutrition_needs, player_info,id):
 def main():
     player_id = input("Enter Player ID: ")
     player_info = get_player_stats(cur,player_id)
-    needs = calcute_nutrition(cur,player_info['position'],player_info['height'],player_info['weight']
-                              ,player_info['minutes'],player_info['points'])
+    info = players.find_players_by_full_name(player_info['firstname'] + " " + player_info['lastname'])[0]
+    info = commonplayerinfo.CommonPlayerInfo(info['id'])
+    data = info.get_normalized_dict()
+    metricts = data['CommonPlayerInfo'][0]
+
+    height = metricts['HEIGHT']
+    weight = metricts['WEIGHT']
+    position = metricts['POSITION']
+    minutes, seconds = map(int, player_info['minutes'].split(":"))
+    needs = calcute_nutrition(position,height,weight
+                              ,minutes,int(player_info['points']))
     meal_plan = create_nutrition_plan(needs)
     plots(meal_plan, needs, player_info,player_id)
 
