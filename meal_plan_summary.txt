@@ -9,9 +9,8 @@
   Poutine | 710 kcal | 19.0g protein, 38.0g fat, 75.0g carbs
   Blini Pancakes | 165 kcal | 7.28g protein, 14.17g fat, 3.97g carbs
   Vegetarian Casserole | 217 kcal | 14.54g protein, 9.59g fat, 17.91g carbs
-  Sweet and Sour Pork | 231 kcal | 15.1g protein, 8.23g fat, 24.81g carbs
-  Madeira Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
-  Total Calories: 3051 kcal
+  Gigantes Plaki | 150 kcal | 6.0g protein, 5.0g fat, 19.0g carbs
+  Total Calories: 2866 kcal
 
  Meal Plan for Day 2:
   White chocolate creme brulee | 404 kcal | 4.06g protein, 32.15g fat, 26.29g carbs
@@ -22,8 +21,7 @@
   Battenberg Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
   Potato Salad (Olivier Salad) | 259 kcal | 3.22g protein, 12.87g fat, 34.16g carbs
   Tonkatsu pork | 186 kcal | 19.0g protein, 6.0g fat, 14.0g carbs
-  Spicy North African Potato Salad | 259 kcal | 3.22g protein, 12.87g fat, 34.16g carbs
-  Total Calories: 3052 kcal
+  Total Calories: 2793 kcal
 
  Meal Plan for Day 3:
   Lamb Tagine | 421 kcal | 37.0g protein, 13.0g fat, 38.0g carbs
@@ -32,9 +30,9 @@
   Choc Chip Pecan Pie | 456 kcal | 4.56g protein, 21.09g fat, 65.21g carbs
   Burek | 284 kcal | 9.42g protein, 17.28g fat, 21.8g carbs
   Chick-Fil-A Sandwich | 450 kcal | 28.0g protein, 19.0g fat, 45.0g carbs
-  Massaman Beef curry | 434 kcal | 27.59g protein, 30.59g fat, 13.69g carbs
-  Creamy Tomato Soup | 110 kcal | 5.0g protein, 2.0g fat, 17.0g carbs
-  Total Calories: 3054 kcal
+  Summer Pudding | 125 kcal | 1.77g protein, 4.93g fat, 19.68g carbs
+  Sweet and Sour Pork | 231 kcal | 15.1g protein, 8.23g fat, 24.81g carbs
+  Total Calories: 2866 kcal
 
  Meal Plan for Day 4:
   Irish stew | 230 kcal | 24.0g protein, 6.0g fat, 20.0g carbs
@@ -46,8 +44,7 @@
   Three-cheese souffles | 194 kcal | 9.16g protein, 14.76g fat, 5.88g carbs
   Spicy Arrabiata Penne | 220 kcal | 8.07g protein, 1.29g fat, 42.95g carbs
   Tuna Nicoise | 360 kcal | 21.0g protein, 20.0g fat, 23.0g carbs
-  Potato Gratin with Chicken | 104 kcal | 1.66g protein, 2.4g fat, 19.36g carbs
-  Total Calories: 2966 kcal
+  Total Calories: 2862 kcal
 
  Meal Plan for Day 5:
   Brown Stew Chicken | 138 kcal | 13.84g protein, 8.77g fat, 0.0g carbs
@@ -59,9 +56,9 @@
   Christmas Pudding Flapjack | 224 kcal | 1.0g protein, 0.0g fat, 19.6g carbs
   Apple Frangipan Tart | 320 kcal | 4.0g protein, 13.0g fat, 43.0g carbs
   Chocolate Souffle | 351 kcal | 4.61g protein, 19.5g fat, 44.69g carbs
-  Salted Caramel Cheescake | 300 kcal | 4.0g protein, 13.0g fat, 40.0g carbs
   Walnut Roll Gužvara | 120 kcal | 0.0g protein, 13.6g fat, 0.0g carbs
-  Total Calories: 3052 kcal
+  Creamy Tomato Soup | 110 kcal | 5.0g protein, 2.0g fat, 17.0g carbs
+  Total Calories: 2862 kcal
 
  Meal Plan for Day 6:
   Chicken & mushroom Hotpot | 178 kcal | 21.08g protein, 8.26g fat, 3.83g carbs
@@ -73,9 +70,8 @@
   Roast fennel and aubergine paella | 379 kcal | 22.85g protein, 13.06g fat, 40.03g carbs
   Rosol (Polish Chicken Soup) | 704 kcal | 30.1g protein, 61.63g fat, 4.86g carbs
   Treacle Tart | 204 kcal | 2.44g protein, 5.3g fat, 36.97g carbs
-  Mustard champ | 530 kcal | 18.0g protein, 37.0g fat, 40.0g carbs
-  Chicken Handi | 140 kcal | 1.0g protein, 6.0g fat, 20.0g carbs
-  Total Calories: 3060 kcal
+  Choc Chip Pecan Pie | 456 kcal | 4.56g protein, 21.09g fat, 65.21g carbs
+  Total Calories: 2846 kcal
 
  Meal Plan for Day 7:
   Shrimp Chow Fun | 171 kcal | 2.78g protein, 0.67g fat, 37.47g carbs
@@ -88,6 +84,5 @@
   Tarte Tatin | 120 kcal | 2.0g protein, 2.5g fat, 23.0g carbs
   Sweet and Sour Pork | 231 kcal | 15.1g protein, 8.23g fat, 24.81g carbs
   Pizza Express Margherita | 204 kcal | 7.13g protein, 3.9g fat, 34.23g carbs
-  Strawberry Rhubarb Pie | 170 kcal | 2.0g protein, 3.0g fat, 36.0g carbs
   Nutty Chicken Curry | 160 kcal | 14.8g protein, 8.6g fat, 6.11g carbs
-  Total Calories: 3037 kcal
+  Total Calories: 2867 kcal

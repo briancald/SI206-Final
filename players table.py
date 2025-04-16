@@ -3,17 +3,13 @@ from NBA import get_more_players
 
 
 
-<<<<<<< HEAD
+
 def create_database_table():
     conn = sqlite3.connect('combined_data.db')
-=======
-def create_database_tables():
-    conn = sqlite3.connect('nba_data.db')
->>>>>>> c091bd8 (Updated changes)
     cursor = conn.cursor()
 
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS players (
+    CREATE TABLE IF NOT EXISTS player (
         id INTEGER PRIMARY KEY,
         firstname TEXT,
         lastname TEXT,
@@ -27,7 +23,7 @@ def create_database_tables():
         player_id INTEGER,
         points INTEGER,
         minutes TEXT,
-        FOREIGN KEY (player_id) REFERENCES players (id)
+        FOREIGN KEY (player_id) REFERENCES player (id)
     )
     ''')
 
@@ -39,48 +35,46 @@ def create_database_tables():
 
 
 def insert_player_data(players_data):
-<<<<<<< HEAD
+
+
     conn = sqlite3.connect('combined_data.db')
     cursor = conn.cursor()
-=======
-        conn = sqlite3.connect('nba_data.db')
-        cursor = conn.cursor()
->>>>>>> c091bd8 (Updated changes)
 
-        # for player in players_data:
-        for i in range(len(players_data)):
-            if i > 25:
-                break
-            
-            # Insert player info
-            player = players_data[i]
-            cursor.execute('''
-                INSERT OR IGNORE INTO players (
-                    id, firstname, lastname, position
-                ) VALUES (?, ?, ?, ?)
-            ''', (
-                player["id"],
-                player["firstname"],
-                player["lastname"],
-                player["position"]
-            ))
 
-            # Insert score info
-            cursor.execute('''
-                INSERT OR IGNORE INTO scores (
-                    player_id, points, minutes
-                ) VALUES (?, ?, ?)
-            ''', (
-                player["id"],
-                player["points"],
-                player["minutes"]
-            ))
+    # for player in players_data:
+    for i in range(len(players_data)):
+        if i > 24:
+            break
             
+        # Insert player info
+        player = players_data[i]
+        cursor.execute('''
+            INSERT OR IGNORE INTO player (
+                id, firstname, lastname, position
+            ) VALUES (?, ?, ?, ?)
+        ''', (
+            player["id"],
+            player["firstname"],
+            player["lastname"],
+            player["position"]
+        ))
+
+        # Insert score info
+        cursor.execute('''
+            INSERT OR IGNORE INTO scores (
+                player_id, points, minutes
+            ) VALUES (?, ?, ?)
+        ''', (
+            player["id"],
+            player["points"],
+            player["minutes"]
+        ))
         
-            if cursor.rowcount >= 25: 
-                break
+    
+        if cursor.rowcount >= 24: 
+            break
         conn.commit()
-        conn.close()
+        #conn.close()
 
 
 
@@ -118,10 +112,10 @@ def get_existing_player_count():
     conn = sqlite3.connect('combined_data.db')
     cursor = conn.cursor()
 
-    cursor.execute('SELECT COUNT(*) FROM players')
+    cursor.execute('SELECT COUNT(*) FROM player')
     count = cursor.fetchone()[0]
 
-    conn.close()
+    #conn.close()
     return count
 
 def check_schema():
@@ -129,7 +123,7 @@ def check_schema():
     cursor = conn.cursor()
 
     print("\nPlayers Table Schema:")
-    cursor.execute("PRAGMA table_info(players);")
+    cursor.execute("PRAGMA table_info(player);")
     for column in cursor.fetchall():
         print(column)
 
@@ -138,12 +132,12 @@ def check_schema():
     for column in cursor.fetchall():
         print(column)
 
-    conn.close()
+    #conn.close()
 
 
 
 def main():
-    create_database_tables()
+    create_database_table()
 
     existing_count = get_existing_player_count()
     print(f"Current players in database: {existing_count}")
