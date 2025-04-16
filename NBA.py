@@ -1,4 +1,5 @@
 import requests
+import json
 
 
 
@@ -12,7 +13,12 @@ def get_api_key(filename):
 
 
 
-def get_more_players():
+def get_more_players(api=True): 
+    if api is False:
+        with open("players.json", "r") as json_file:
+            players_data = json.load(json_file)
+        return players_data
+
     url = "https://api-nba-v1.p.rapidapi.com/players/statistics"
 
     querystring = {"team":"1","season":"2020"}
@@ -25,6 +31,8 @@ def get_more_players():
     response = requests.get(url, headers=headers, params=querystring)
 
     more_play = response.json()
+    with open("players.json", "w") as json_file:
+        json.dump(more_play, json_file, indent=4)  # indent makes it look nice & readable
     return more_play
     
 
