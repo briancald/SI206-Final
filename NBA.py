@@ -10,10 +10,11 @@ def get_api_key(filename):
 
 
 
-def get_players():
-    url = "https://api-nba-v1.p.rapidapi.com/players"
 
-    querystring = {"team":"1","season":"2021"}
+def get_more_players():
+    url = "https://api-nba-v1.p.rapidapi.com/players/statistics"
+
+    querystring = {"team":"1","season":"2020"}
 
     headers = {
         "x-rapidapi-key": "71f6ebba9amsh87b761e3e6eddd5p1ac7eajsnec34507127ea",
@@ -22,18 +23,18 @@ def get_players():
 
     response = requests.get(url, headers=headers, params=querystring)
 
+    more_play = response.json()
+    return more_play
     
-    player_info = response.json()
-    return player_info
-
-
 
 
 def main():
 
-    players_data = get_players()
-    print("Players Data:", players_data)
+    
+    players_data = get_more_players()
+    print("More players:", players_data)
 
-
+    
+    
 if __name__ == "__main__":
     main()
