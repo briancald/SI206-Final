@@ -3,13 +3,8 @@ from NBA import get_more_players
 
 
 
-<<<<<<< HEAD
-def create_database_table():
-    conn = sqlite3.connect('combined_data.db')
-=======
 def create_database_tables():
-    conn = sqlite3.connect('nba_data.db')
->>>>>>> c091bd8 (Updated changes)
+    conn = sqlite3.connect('combined_data.db')
     cursor = conn.cursor()
 
     cursor.execute('''
@@ -39,13 +34,8 @@ def create_database_tables():
 
 
 def insert_player_data(players_data):
-<<<<<<< HEAD
-    conn = sqlite3.connect('combined_data.db')
-    cursor = conn.cursor()
-=======
-        conn = sqlite3.connect('nba_data.db')
+        conn = sqlite3.connect('combined_data.db')
         cursor = conn.cursor()
->>>>>>> c091bd8 (Updated changes)
 
         # for player in players_data:
         for i in range(len(players_data)):
