@@ -18,11 +18,7 @@ def setup_database(name):
 
     cur.execute('''CREATE TABLE IF NOT EXISTS meals (
         meal_id INTEGER PRIMARY KEY,
-        name TEXT,
-        category TEXT,
-        area TEXT,
-        instructions TEXT,
-        thumbnail TEXT)''')  
+        name TEXT)''')  
     
     cur.execute('''
     CREATE TABLE IF NOT EXISTS nutrition (
@@ -44,13 +40,9 @@ def insert_meals(cur, meals):
     for meal in meals:
         meal_id = meal['idMeal']
         name = meal['strMeal']
-        category = meal['strCategory']
-        area = meal['strArea']
-        instructions = meal['strInstructions']
-        thumbnail = meal['strMealThumb']
         cur.execute('''
-            INSERT OR IGNORE INTO meals (meal_id, name, category, area, instructions, thumbnail)
-            VALUES (?, ?, ?, ?, ?, ?)''', (meal_id, name, category, area, instructions, thumbnail))
+            INSERT OR IGNORE INTO meals (meal_id, name)
+            VALUES (?, ?)''', (meal_id, name))
         if cur.rowcount > 0:
             inserted += 1
         if inserted >= 25:
