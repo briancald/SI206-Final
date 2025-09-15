@@ -10,8 +10,7 @@
   Blini Pancakes | 165 kcal | 7.28g protein, 14.17g fat, 3.97g carbs
   Vegetarian Casserole | 217 kcal | 14.54g protein, 9.59g fat, 17.91g carbs
   Sweet and Sour Pork | 231 kcal | 15.1g protein, 8.23g fat, 24.81g carbs
-  Madeira Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
-  Total Calories: 3051 kcal
+  Total Calories: 2947 kcal
 
  Meal Plan for Day 2:
   White chocolate creme brulee | 404 kcal | 4.06g protein, 32.15g fat, 26.29g carbs
@@ -22,8 +21,8 @@
   Battenberg Cake | 104 kcal | 0.73g protein, 3.48g fat, 18.21g carbs
   Potato Salad (Olivier Salad) | 259 kcal | 3.22g protein, 12.87g fat, 34.16g carbs
   Tonkatsu pork | 186 kcal | 19.0g protein, 6.0g fat, 14.0g carbs
-  Spicy North African Potato Salad | 259 kcal | 3.22g protein, 12.87g fat, 34.16g carbs
-  Total Calories: 3052 kcal
+  Sticky Toffee Pudding Ultimate | 169 kcal | 3.51g protein, 0.33g fat, 36.7g carbs
+  Total Calories: 2962 kcal
 
  Meal Plan for Day 3:
   Lamb Tagine | 421 kcal | 37.0g protein, 13.0g fat, 38.0g carbs
@@ -33,8 +32,7 @@
   Burek | 284 kcal | 9.42g protein, 17.28g fat, 21.8g carbs
   Chick-Fil-A Sandwich | 450 kcal | 28.0g protein, 19.0g fat, 45.0g carbs
   Massaman Beef curry | 434 kcal | 27.59g protein, 30.59g fat, 13.69g carbs
-  Creamy Tomato Soup | 110 kcal | 5.0g protein, 2.0g fat, 17.0g carbs
-  Total Calories: 3054 kcal
+  Total Calories: 2944 kcal
 
  Meal Plan for Day 4:
   Irish stew | 230 kcal | 24.0g protein, 6.0g fat, 20.0g carbs
@@ -60,8 +58,7 @@
   Apple Frangipan Tart | 320 kcal | 4.0g protein, 13.0g fat, 43.0g carbs
   Chocolate Souffle | 351 kcal | 4.61g protein, 19.5g fat, 44.69g carbs
   Salted Caramel Cheescake | 300 kcal | 4.0g protein, 13.0g fat, 40.0g carbs
-  Walnut Roll Gužvara | 120 kcal | 0.0g protein, 13.6g fat, 0.0g carbs
-  Total Calories: 3052 kcal
+  Total Calories: 2932 kcal
 
  Meal Plan for Day 6:
   Chicken & mushroom Hotpot | 178 kcal | 21.08g protein, 8.26g fat, 3.83g carbs
@@ -74,8 +71,7 @@
   Rosol (Polish Chicken Soup) | 704 kcal | 30.1g protein, 61.63g fat, 4.86g carbs
   Treacle Tart | 204 kcal | 2.44g protein, 5.3g fat, 36.97g carbs
   Mustard champ | 530 kcal | 18.0g protein, 37.0g fat, 40.0g carbs
-  Chicken Handi | 140 kcal | 1.0g protein, 6.0g fat, 20.0g carbs
-  Total Calories: 3060 kcal
+  Total Calories: 2920 kcal
 
  Meal Plan for Day 7:
   Shrimp Chow Fun | 171 kcal | 2.78g protein, 0.67g fat, 37.47g carbs
@@ -89,5 +85,4 @@
   Sweet and Sour Pork | 231 kcal | 15.1g protein, 8.23g fat, 24.81g carbs
   Pizza Express Margherita | 204 kcal | 7.13g protein, 3.9g fat, 34.23g carbs
   Strawberry Rhubarb Pie | 170 kcal | 2.0g protein, 3.0g fat, 36.0g carbs
-  Nutty Chicken Curry | 160 kcal | 14.8g protein, 8.6g fat, 6.11g carbs
-  Total Calories: 3037 kcal
+  Total Calories: 2877 kcal

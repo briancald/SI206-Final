@@ -11,7 +11,6 @@ import json
 import time
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import commonplayerinfo
-
 conn = sqlite3.connect("combined_data.db")
 cur = conn.cursor()
 
